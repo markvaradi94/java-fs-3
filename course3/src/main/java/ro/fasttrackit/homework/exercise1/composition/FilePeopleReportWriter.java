@@ -2,6 +2,7 @@ package ro.fasttrackit.homework.exercise1.composition;
 
 import lombok.Builder;
 import lombok.With;
+import ro.fasttrackit.homework.exercise1.person.AgeGroup;
 import ro.fasttrackit.homework.exercise1.person.Person;
 
 import java.io.BufferedWriter;
@@ -11,7 +12,6 @@ import java.util.List;
 import java.util.TreeMap;
 
 import static java.util.stream.Collectors.*;
-import static ro.fasttrackit.homework.exercise1.person.AgeGroup.categorizeAge;
 
 @With
 @Builder
@@ -23,7 +23,7 @@ public record FilePeopleReportWriter(
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
             people.stream()
                     .collect(
-                            groupingBy(person -> categorizeAge(person.age()),
+                            groupingBy(AgeGroup::categorizeAge,
                                     TreeMap::new,
                                     mapping(Person::fullName, joining(", "))))
                     .entrySet()

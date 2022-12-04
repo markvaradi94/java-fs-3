@@ -48,15 +48,7 @@ public class PersonEventDispatcher {
         return person.name().startsWith(letter);
     }
 
-    private boolean nameStartsWithA(Person person) {
-        return person.name().startsWith("A");
-    }
-
     private String messageForStartsWith(Person person, String letter) {
         return person.name() + " starts with " + letter;
-    }
-
-    private String messageForStartsWithA(Person person) {
-        return person.name() + " starts with A";
     }
 }

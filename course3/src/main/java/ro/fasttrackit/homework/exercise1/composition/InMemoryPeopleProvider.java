@@ -1,11 +1,13 @@
 package ro.fasttrackit.homework.exercise1.composition;
 
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 import ro.fasttrackit.homework.exercise1.person.Person;
 
 import java.util.List;
 
 @Builder
+@NoArgsConstructor
 public class InMemoryPeopleProvider implements PeopleProvider {
     @Override
     public List<Person> readPeople() {

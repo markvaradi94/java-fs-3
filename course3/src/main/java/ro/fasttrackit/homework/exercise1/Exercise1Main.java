@@ -26,7 +26,7 @@ public class Exercise1Main {
         fileGenerator2.generateReport();
 
         var fileGenerator3 = PeopleReportGenerator.builder()
-                .peopleProvider(InMemoryPeopleProvider.builder().build())
+                .peopleProvider(new InMemoryPeopleProvider())
                 .reportWriter(FilePeopleReportWriter.builder()
                         .outputFile("src/main/resources/output/people-comp-2")
                         .build())

@@ -1,6 +1,7 @@
 package ro.fasttrackit.homework.exercise1.inheritance;
 
 import lombok.SneakyThrows;
+import ro.fasttrackit.homework.exercise1.person.AgeGroup;
 import ro.fasttrackit.homework.exercise1.person.Person;
 
 import java.io.BufferedWriter;
@@ -12,7 +13,6 @@ import java.util.TreeMap;
 
 import static java.lang.Integer.parseInt;
 import static java.util.stream.Collectors.*;
-import static ro.fasttrackit.homework.exercise1.person.AgeGroup.categorizeAge;
 
 abstract class PersonReportGenerator {
 
@@ -37,7 +37,7 @@ abstract class PersonReportGenerator {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
             people.stream()
                     .collect(
-                            groupingBy(person -> categorizeAge(person.age()),
+                            groupingBy(AgeGroup::categorizeAge,
                                     TreeMap::new,
                                     mapping(Person::fullName, joining(", "))))
                     .entrySet()
