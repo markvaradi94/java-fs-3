@@ -1,0 +1,3 @@
+RED: [Gezuci]
+YELLOW: [Markuci]
+GREEN: [Beluci, Reniti]
